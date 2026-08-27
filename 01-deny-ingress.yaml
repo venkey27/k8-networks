@@ -1,0 +1,12 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+  namespace: roboshop
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+
+# Now pods in roboshop namespace denies all incoming traffic including pods with in the namespace
