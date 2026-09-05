@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mongodb
+  namespace: roboshop
+spec:
+  podSelector:
+    matchLabels:
+      project: roboshop
+      tier: database
+      component: mongodb
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:  # pod seletcor attaching to mongodb
+        matchLabels:
+          project: roboshop
+          tier: backend
+          component: catalogue
+    - podSelector:
+        matchLabels:
+          project: roboshop
+          tier: backend
+          component: cart
+    ports:
+    - protocol: TCP
+      port: 27017  # roboshop will allow traffic from catalogue and cart on 27017 (mongodb) port
