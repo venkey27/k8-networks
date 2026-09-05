@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-monitoring
-  namespace: roboshop
+  namespace: roboshop   # now roboshop namespace will allow, allow-monitoring namespace on port numner 9090
 spec:
   podSelector: {}  # for every pods we use {}
   policyTypes:
