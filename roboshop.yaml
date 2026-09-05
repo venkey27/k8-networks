@@ -12,3 +12,5 @@ spec:
   - name: nginx
     image: nginx
     
+
+# network
