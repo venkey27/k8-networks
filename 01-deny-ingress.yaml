@@ -1,6 +1,9 @@
----
+# if "NetworkPolicy" does not exist namespace will allow "PODS" from other namespaces also. so to solve this problem we us "NetworkPolicy"
+# if no policies exist in a namespace, then all ingress and egress traffic is allowed to and from pods in that namespace.
+ 
+
 apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
+kind: NetworkPolicy  
 metadata:
   name: default-deny-ingress
   namespace: roboshop
